@@ -25,7 +25,7 @@ public class ExitApplication : MonoBehaviour
 {
     public void ExitGame()
     {
-        Debug.Log("Successfully Exited the Game");
+        Debug.Log("Game has closed.");
         Application.Quit();
     }
 }
