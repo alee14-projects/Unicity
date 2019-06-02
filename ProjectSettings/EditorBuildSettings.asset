@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Main Menu/MainMenu.unity
     guid: cd8a36c057b494a4f9bcbead97580e38
   - enabled: 1
-    path: Assets/Scenes/TestDemo/TestSimulation.unity
+    path: Assets/Scenes/Simulation/Simulation.unity
     guid: dc357eacdfd93334dad05bb25810da27
   m_configObjects: {}
