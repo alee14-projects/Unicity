@@ -42,7 +42,7 @@ public class PlayerStats : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.A))
+        if(Input.GetKeyDown(KeyCode.K))
         {
             Debug.Log("You have given yourself 10% Hunger and Bladder");
             Hunger += 10;
