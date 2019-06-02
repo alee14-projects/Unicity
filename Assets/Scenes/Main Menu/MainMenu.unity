@@ -854,8 +854,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 236.90625, y: -114.84094}
-  m_SizeDelta: {x: 359.7, y: 60.1}
+  m_AnchoredPosition: {x: 225.34, y: -111}
+  m_SizeDelta: {x: 173.4, y: 67.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1244813970
 MonoBehaviour:
@@ -877,7 +877,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Project: SimLife'
+  m_text: UniCity
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -946,10 +946,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: -2.88316, w: 0}
   m_textInfo:
     textComponent: {fileID: 1244813970}
-    characterCount: 16
+    characterCount: 7
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -1135,7 +1135,7 @@ GameObject:
   - component: {fileID: 2084687743}
   - component: {fileID: 2084687742}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Version
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
