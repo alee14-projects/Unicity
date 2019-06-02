@@ -21,10 +21,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ExitApplication : MonoBehaviour
-{
-    public void ExitGame()
-    {
+public class ExitApplication : MonoBehaviour {
+    public void ExitGame() {
         Debug.Log("Game has closed.");
         Application.Quit();
     }
