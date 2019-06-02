@@ -20,11 +20,66 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour
 {
-    public int hunger = 100;
-    public int bladder = 100;
-    public int hygiene = 100;
-    public int energy = 100;
+    public float Hunger;
+    public float hungerOverTime;
+    public float Bladder;
+    public float bladderOverTime;
+    public float Hygiene;
+    public float Energy;
+
+    public Slider HungerBar;
+    public Slider BladderBar;
+
+    private void Start()
+    {
+        HungerBar.maxValue = Hunger;
+        BladderBar.maxValue = Bladder;
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.A))
+        {
+            Debug.Log("You have given yourself 10% Hunger and Bladder");
+            Hunger += 10;
+            Bladder += 10;
+        }
+
+        if(Input.GetKeyDown(KeyCode.L))
+        {
+            Debug.Log("You have given yourself -10% Hunger and Bladder");
+            Hunger -= 10;
+            Bladder -= 10;
+        }
+
+        CalculcateValue();
+    }
+
+    private void CalculcateValue()
+    {
+        Hunger -= hungerOverTime * Time.deltaTime;
+        Bladder -= bladderOverTime * Time.deltaTime;
+
+        if (Hunger <= 0)
+        {
+            Debug.Log("You have starved to death!");
+        }
+
+
+        UpdateUI();
+    }
+
+    private void UpdateUI()
+    {
+        Hunger = Mathf.Clamp(Hunger, 0, 100f);
+        Bladder = Mathf.Clamp(Bladder, 0, 100f);
+
+        HungerBar.value = Hunger;
+        BladderBar.value = Bladder;
+
+    }
 }
