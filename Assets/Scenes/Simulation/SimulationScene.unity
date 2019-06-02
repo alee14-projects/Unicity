@@ -647,7 +647,7 @@ GameObject:
   - component: {fileID: 442136357}
   - component: {fileID: 442136356}
   m_Layer: 9
-  m_Name: Plane
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2144,7 +2144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Hunger: 100
-  hungerOverTime: 0
+  hungerOverTime: 1
   Bladder: 100
   bladderOverTime: 0
   Hygiene: 0
