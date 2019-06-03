@@ -1473,10 +1473,13 @@ MonoBehaviour:
   m_text: 'Created by AleeCorp & Software Elevated
 
 
-    Original Idea: Andrew Lee
-    (AleeCorp)
+    Using the Unity Game Engine
 
-    UI Design: Andrew Lee (AleeCorp) and cylex (Software Elevated)'
+    Original
+    Idea: Andrew Lee (AleeCorp)
+
+    UI Design: Andrew Lee (AleeCorp) and cylex (Software
+    Elevated)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
@@ -1521,7 +1524,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 115
+  m_firstOverflowCharacterIndex: 106
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1545,12 +1548,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1328274757}
-    characterCount: 140
+    characterCount: 168
     spriteCount: 0
-    spaceCount: 20
-    wordCount: 19
+    spaceCount: 25
+    wordCount: 24
     linkCount: 0
-    lineCount: 5
+    lineCount: 6
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
