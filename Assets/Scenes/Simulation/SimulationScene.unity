@@ -1012,7 +1012,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, Unity.ugui,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Unicity - Experimental 2
+  m_text: 'Unicity - Experimental 3
 
     Please note that game is under active development,
     and features may be incomplete or missing.'
@@ -1243,7 +1243,7 @@ PrefabInstance:
     - target: {fileID: 8754154740269184899, guid: 83359716712d3c04293cf99088933eb6,
         type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8754154740269184899, guid: 83359716712d3c04293cf99088933eb6,
         type: 3}
