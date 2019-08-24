@@ -67,6 +67,7 @@ public class PlayerStats : MonoBehaviour
         if (Hunger <= 0)
         {
             Debug.Log("You have starved to death!");
+            Hunger += 100;
         }
 
 
