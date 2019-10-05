@@ -34,6 +34,8 @@ public class PlayerStats : MonoBehaviour
     public Slider HungerBar;
     public Slider BladderBar;
 
+    public Material SimDeadMaterial;
+
     private void Start()
     {
         HungerBar.maxValue = Hunger;
@@ -66,10 +68,11 @@ public class PlayerStats : MonoBehaviour
 
         if (Hunger <= 0)
         {
+            gameObject.GetComponent<MeshRenderer>().material = SimDeadMaterial;
+
             Debug.Log("You have starved to death!");
             Hunger += 100;
         }
-
 
         UpdateUI();
     }
