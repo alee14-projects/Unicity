@@ -1488,7 +1488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 497, y: 78}
+  m_AnchoredPosition: {x: 523, y: 76}
   m_SizeDelta: {x: 974.2, y: 471.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1198375718
@@ -1509,16 +1509,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "    Unicity (Project SimLife): A Sims clone written in Unity C#\r\n   
-    Copyright (C) 2019 AleeCorp & Software Elevated\r\n\r\n    This program is free
-    software: you can redistribute it and/or modify\r\n    it under the terms of
-    the GNU General Public License as published by\r\n    the Free Software Foundation,
-    either version 3 of the License, or\r\n    (at your option) any later version.\r\n\r\n   
-    This program is distributed in the hope that it will be useful,\r\n    but WITHOUT
-    ANY WARRANTY; without even the implied warranty of\r\n    MERCHANTABILITY or
-    FITNESS FOR A PARTICULAR PURPOSE.  See the\r\n    GNU General Public License
-    for more details.\r\n\r\n    You should have received a copy of the GNU General
-    Public License\r\n    along with this program.  If not, see <https://www.gnu.org/licenses/>."
+  m_text: 'Unicity (Project SimLife): A Sims clone written in Unity C#
+
+    Copyright
+    (C) 2019 Unicity Development Team
+
+
+    This software is protected by the copyright
+    and licensing rights held by the Unicity Development Team. (2019)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa623acb39bd0fa47807173407e82458, type: 2}
   m_sharedMaterial: {fileID: 3933269349784766730, guid: fa623acb39bd0fa47807173407e82458,
@@ -1564,7 +1562,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 709
+  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -1588,12 +1586,12 @@ MonoBehaviour:
   m_margin: {x: -19.513023, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1198375718}
-    characterCount: 783
+    characterCount: 214
     spriteCount: 0
-    spaceCount: 168
-    wordCount: 121
+    spaceCount: 33
+    wordCount: 33
     linkCount: 0
-    lineCount: 15
+    lineCount: 5
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -1755,7 +1753,9 @@ MonoBehaviour:
     Idea: Andrew Lee (Alee Productions)
 
     UI Design: Andrew Lee (Alee Productions)
-    and cylex (Atlacomm)'
+    and cylex (Atlacomm)
+
+    Code: Adrian Ulbrich (Atlacomm)'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: fa623acb39bd0fa47807173407e82458, type: 2}
   m_sharedMaterial: {fileID: 3933269349784766730, guid: fa623acb39bd0fa47807173407e82458,
@@ -1825,12 +1825,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1328274757}
-    characterCount: 174
+    characterCount: 206
     spriteCount: 0
-    spaceCount: 26
-    wordCount: 25
+    spaceCount: 30
+    wordCount: 29
     linkCount: 0
-    lineCount: 6
+    lineCount: 7
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -2150,6 +2150,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1430528654}
     m_Modifications:
+    - target: {fileID: 6185627664185496795, guid: 54640e6cdbc2f4d78988772c93376f87,
+        type: 3}
+      propertyPath: m_Name
+      value: Version
+      objectReference: {fileID: 0}
     - target: {fileID: 6185627664185496794, guid: 54640e6cdbc2f4d78988772c93376f87,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2254,11 +2259,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185627664185496795, guid: 54640e6cdbc2f4d78988772c93376f87,
-        type: 3}
-      propertyPath: m_Name
-      value: Version
       objectReference: {fileID: 0}
     - target: {fileID: 6185627664185496798, guid: 54640e6cdbc2f4d78988772c93376f87,
         type: 3}
@@ -2499,6 +2499,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1430528654}
     m_Modifications:
+    - target: {fileID: 6185627664185496795, guid: 54640e6cdbc2f4d78988772c93376f87,
+        type: 3}
+      propertyPath: m_Name
+      value: Text
+      objectReference: {fileID: 0}
     - target: {fileID: 6185627664185496794, guid: 54640e6cdbc2f4d78988772c93376f87,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2604,11 +2609,6 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 6185627664185496795, guid: 54640e6cdbc2f4d78988772c93376f87,
-        type: 3}
-      propertyPath: m_Name
-      value: Text
-      objectReference: {fileID: 0}
     - target: {fileID: 6185627664185496798, guid: 54640e6cdbc2f4d78988772c93376f87,
         type: 3}
       propertyPath: m_FontData.m_FontSize
@@ -2625,6 +2625,11 @@ PrefabInstance:
         type: 3}
       propertyPath: translationName
       value: game_copyright
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185627664185496793, guid: 54640e6cdbc2f4d78988772c93376f87,
+        type: 3}
+      propertyPath: FallbackText
+      value: Copyright 2019 Alee Productions & Atlacomm
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54640e6cdbc2f4d78988772c93376f87, type: 3}
@@ -2864,6 +2869,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1430528654}
     m_Modifications:
+    - target: {fileID: 6185627664185496795, guid: 54640e6cdbc2f4d78988772c93376f87,
+        type: 3}
+      propertyPath: m_Name
+      value: Title
+      objectReference: {fileID: 0}
     - target: {fileID: 6185627664185496794, guid: 54640e6cdbc2f4d78988772c93376f87,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2968,11 +2978,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 6185627664185496795, guid: 54640e6cdbc2f4d78988772c93376f87,
-        type: 3}
-      propertyPath: m_Name
-      value: Title
       objectReference: {fileID: 0}
     - target: {fileID: 6185627664185496793, guid: 54640e6cdbc2f4d78988772c93376f87,
         type: 3}

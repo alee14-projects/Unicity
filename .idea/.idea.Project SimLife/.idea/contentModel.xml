@@ -177,11 +177,6 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="Localisation" t="Include">
-            <e p="CSVLoader.cs" t="Include" />
-            <e p="LocalisationSystem.cs" t="Include" />
-            <e p="TextLocaliserUI.cs" t="Include" />
-          </e>
           <e p="Player" t="Include">
             <e p="PlayerMovement.cs" t="Include" />
             <e p="PlayerStats.cs" t="Include" />
