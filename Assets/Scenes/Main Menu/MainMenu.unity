@@ -2150,11 +2150,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1430528654}
     m_Modifications:
-    - target: {fileID: 6185627664185496795, guid: 54640e6cdbc2f4d78988772c93376f87,
-        type: 3}
-      propertyPath: m_Name
-      value: Version
-      objectReference: {fileID: 0}
     - target: {fileID: 6185627664185496794, guid: 54640e6cdbc2f4d78988772c93376f87,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2259,6 +2254,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185627664185496795, guid: 54640e6cdbc2f4d78988772c93376f87,
+        type: 3}
+      propertyPath: m_Name
+      value: Version
       objectReference: {fileID: 0}
     - target: {fileID: 6185627664185496798, guid: 54640e6cdbc2f4d78988772c93376f87,
         type: 3}
@@ -2499,11 +2499,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1430528654}
     m_Modifications:
-    - target: {fileID: 6185627664185496795, guid: 54640e6cdbc2f4d78988772c93376f87,
-        type: 3}
-      propertyPath: m_Name
-      value: Text
-      objectReference: {fileID: 0}
     - target: {fileID: 6185627664185496794, guid: 54640e6cdbc2f4d78988772c93376f87,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2608,6 +2603,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185627664185496795, guid: 54640e6cdbc2f4d78988772c93376f87,
+        type: 3}
+      propertyPath: m_Name
+      value: Text
       objectReference: {fileID: 0}
     - target: {fileID: 6185627664185496798, guid: 54640e6cdbc2f4d78988772c93376f87,
         type: 3}
@@ -2869,11 +2869,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1430528654}
     m_Modifications:
-    - target: {fileID: 6185627664185496795, guid: 54640e6cdbc2f4d78988772c93376f87,
-        type: 3}
-      propertyPath: m_Name
-      value: Title
-      objectReference: {fileID: 0}
     - target: {fileID: 6185627664185496794, guid: 54640e6cdbc2f4d78988772c93376f87,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2978,6 +2973,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6185627664185496795, guid: 54640e6cdbc2f4d78988772c93376f87,
+        type: 3}
+      propertyPath: m_Name
+      value: Title
       objectReference: {fileID: 0}
     - target: {fileID: 6185627664185496793, guid: 54640e6cdbc2f4d78988772c93376f87,
         type: 3}
