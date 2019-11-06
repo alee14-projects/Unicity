@@ -1,6 +1,8 @@
-﻿namespace Unicity.Renderer
+﻿using System;
+
+namespace Unicity.Renderer
 {
-    class WindowCreationFailedException : System.Exception
+    class WindowCreationFailedException : Exception
     {
         public WindowCreationFailedException(string message) : base(message)
         {

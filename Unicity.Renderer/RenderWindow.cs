@@ -1,22 +1,24 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Drawing;
-using System.IO;
-using GLFW;
+using OpenTK;
+using OpenTK.Graphics;
+using OpenTK.Graphics.OpenGL4;
 
 namespace Unicity.Renderer
 {
     public class RenderWindow : IDisposable
     {
-        const int FPS = 60;
+        const int UPS = 60;
 
-        internal NativeWindow window = null;
+        internal GameWindow window = null;
 
         Stopwatch loopTimer = new Stopwatch();
 
         public event EventHandler Init;
         public event EventHandler Update;
         public event EventHandler Render;
+        public event EventHandler Destroy;
 
         public int Width
         {
@@ -36,57 +38,58 @@ namespace Unicity.Renderer
             set => window.Title = value;
         }
 
+        bool running = false;
+
         public RenderWindow(int width, int height, string title)
         {
-            if (!File.Exists(Glfw.LIBRARY + ".dll"))
-            {
-                throw new WindowCreationFailedException("A required library file is missing and operation cannot continue.");
-            }
+            window = new GameWindow(width, height, GraphicsMode.Default, title, GameWindowFlags.Default);
 
-            if (!Glfw.Init())
-            {
-                throw new WindowCreationFailedException("Failed to initialize GLFW.");
-            }
-
-            window = new NativeWindow(width, height, title);
-            window.SizeChanged += Window_SizeChanged;
+            window.UpdateFrame += Window_UpdateFrame;
+            window.RenderFrame += Window_RenderFrame;
+            window.Unload += Window_Unload;
+            window.Resize += Window_Resize;
         }
 
-        private void Window_SizeChanged(object sender, SizeChangeEventArgs e)
+        private void Window_UpdateFrame(object sender, FrameEventArgs e)
         {
-            GraphicsRenderer.GL.Viewport(0, 0, Width, Height);
-            UpdateWindow();
+            Update?.Invoke(this, EventArgs.Empty);
         }
 
-        public void StartUpdateLoop()
+        private void Window_RenderFrame(object sender, FrameEventArgs e)
         {
-            if (loopTimer.IsRunning) return;
+            Render?.Invoke(this, EventArgs.Empty);
+            window.SwapBuffers();
+        }
 
-            loopTimer.Start();
+        private void Window_Unload(object sender, EventArgs e)
+        {
+            Destroy?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void Window_Resize(object sender, EventArgs e)
+        {
+            GL.Viewport(0, 0, Width, Height);
+            Render?.Invoke(this, EventArgs.Empty);
+            window.SwapBuffers();
+        }
+
+        public void Open()
+        {
+            if (running)
+            {
+                return;
+            }
 
             Init?.Invoke(this, EventArgs.Empty);
+            window.VSync = VSyncMode.Off;
+            window.Run(UPS, 0);
 
-            while (!window.IsClosed)
-            {
-                Glfw.PollEvents();
-
-                if (!window.IsClosing) UpdateWindow();
-            }
-
-            loopTimer.Stop();
+            running = true;
         }
 
-        private void UpdateWindow()
+        public double GetFPS()
         {
-            if (loopTimer.Elapsed.TotalMilliseconds >= 1000 / FPS)
-            {
-                loopTimer.Restart();
-
-                Update?.Invoke(this, EventArgs.Empty);
-                Render?.Invoke(this, EventArgs.Empty);
-
-                window.SwapBuffers();
-            }
+            return window.RenderFrequency;
         }
 
         bool disposed = false;
@@ -105,7 +108,6 @@ namespace Unicity.Renderer
 
             // Dispose of any unmanaged resources
             window?.Dispose();
-            Glfw.Terminate();
 
             // Set disposed flag to true
             disposed = true;

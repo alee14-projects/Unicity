@@ -1,43 +1,50 @@
-﻿using System;
-using System.Drawing;
-using static Unicity.Renderer.GraphicsRenderer;
-using static SharpGL.OpenGL;
+﻿using OpenTK.Graphics.OpenGL4;
 
 namespace Unicity.Renderer.Shapes
 {
     public class Triangle : Shape
     {
-        public Triangle(PointF pos1, PointF pos2, PointF pos3)
-        {
-            Init(pos1.X, pos1.Y, pos2.X, pos2.Y, pos3.X, pos3.Y);
-        }
+        int vao = 0;
+        int vbo = 0;
 
-        public Triangle(float x1, float y1, float x2, float y2, float x3, float y3)
-        {
-            Init(x1, y1, x2, y2, x3, y3);
-        }
+        float[] vertices = null;
 
-        private void Init(float x1, float y1, float x2, float y2, float x3, float y3)
+        public Triangle(float x1, float y1, float z1, float x2, float y2, float z2, float x3, float y3, float z3)
         {
-            float[] data =
+            vertices = new float[]
             {
-                x1, y1,
-                x2, y2,
-                x3, y3
+                x1, y1, z1,
+                x2, y2, z2,
+                x3, y3, z3
             };
 
-            GL.GenBuffers(1, buffers);
-            GL.BindBuffer(GL_ARRAY_BUFFER, buffers[0]);
-            GL.BufferData(GL_ARRAY_BUFFER, data, GL_STATIC_DRAW);
+            vao = GL.GenVertexArray();
+            vbo = GL.GenBuffer();
+            
+            GL.BindVertexArray(vao);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, vbo);
+
+            GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);
+
+            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
+            GL.EnableVertexAttribArray(0);
+
         }
 
-        internal override void Render()
+        internal override void Draw(Shader shader, GraphicsRenderer renderer)
         {
-            GL.EnableVertexAttribArray(0);
-            GL.BindBuffer(GL_ARRAY_BUFFER, buffers[0]);
-            GL.VertexAttribPointer(0, 2, GL_FLOAT, false, 0, IntPtr.Zero);
-            GL.DrawArrays(GL_TRIANGLES, 0, 3);
-            GL.DisableVertexAttribArray(0);
+            GL.BindVertexArray(vao);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, vbo);
+
+            float[] newVertices = new float[vertices.Length];
+
+            GL.DrawArrays(PrimitiveType.Triangles, 0, 3);
+        }
+
+        public override void Dispose()
+        {
+            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+            GL.DeleteBuffer(vbo);
         }
     }
 }

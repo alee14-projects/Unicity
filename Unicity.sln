@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29418.71
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unicity.Renderer", "Unicity.Renderer\Unicity.Renderer.csproj", "{F6EBB1F8-FCA9-4A8D-A807-E877CD047908}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unicity.RenderTest", "Unicity.RenderTest\Unicity.RenderTest.csproj", "{0155C998-9189-4C19-8DCC-13499797C7EA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Unicity.Renderer", "Unicity.Renderer\Unicity.Renderer.csproj", "{F6EBB1F8-FCA9-4A8D-A807-E877CD047908}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
