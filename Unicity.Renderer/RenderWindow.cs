@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
-using System.Drawing;
 using OpenTK;
 using OpenTK.Graphics;
 using OpenTK.Graphics.OpenGL4;
@@ -9,45 +7,35 @@ namespace Unicity.Renderer
 {
     public class RenderWindow : IDisposable
     {
-        const int UPS = 60;
-
-        internal GameWindow window = null;
-
-        Stopwatch loopTimer = new Stopwatch();
-
-        public event EventHandler Init;
         public event EventHandler Update;
         public event EventHandler Render;
-        public event EventHandler Destroy;
 
-        public int Width
-        {
-            get => window.ClientSize.Width;
-            set => window.ClientSize = new Size(value, window.ClientSize.Height);
-        }
+        GameWindow window = null;
 
-        public int Height
-        {
-            get => window.ClientSize.Height;
-            set => window.ClientSize = new Size(window.ClientSize.Width, value);
-        }
+        public int Width { get => window.Width; set => window.Width = value; }
+        public int Height { get => window.Height; set => window.Height = value; }
 
-        public string Title
-        {
-            get => window.Title;
-            set => window.Title = value;
-        }
+        public string Title { get => window.Title; set => window.Title = value; }
 
-        bool running = false;
+        bool disposed = false;
 
         public RenderWindow(int width, int height, string title)
         {
-            window = new GameWindow(width, height, GraphicsMode.Default, title, GameWindowFlags.Default);
-
+            window = new GameWindow(width, height, GraphicsMode.Default, title, GameWindowFlags.Default, DisplayDevice.Default, 4, 0, GraphicsContextFlags.ForwardCompatible);
+            window.Load += Window_Load;
+            window.Resize += Window_Resize;
             window.UpdateFrame += Window_UpdateFrame;
             window.RenderFrame += Window_RenderFrame;
-            window.Unload += Window_Unload;
-            window.Resize += Window_Resize;
+        }
+        private void Window_Load(object sender, EventArgs e)
+        {
+            GL.Viewport(0, 0, Width, Height);
+            GL.ClearColor(1.0f, 0.0f, 0.0f, 1.0f);
+        }
+
+        private void Window_Resize(object sender, EventArgs e)
+        {
+            GL.Viewport(0, 0, Width, Height);
         }
 
         private void Window_UpdateFrame(object sender, FrameEventArgs e)
@@ -57,45 +45,29 @@ namespace Unicity.Renderer
 
         private void Window_RenderFrame(object sender, FrameEventArgs e)
         {
-            Render?.Invoke(this, EventArgs.Empty);
+            GL.Clear(ClearBufferMask.ColorBufferBit);
+
+            Update?.Invoke(this, EventArgs.Empty);
+
             window.SwapBuffers();
         }
-
-        private void Window_Unload(object sender, EventArgs e)
+        
+        public void Open(double ups, double fps)
         {
-            Destroy?.Invoke(this, EventArgs.Empty);
+            window.Run(ups, fps);
         }
 
-        private void Window_Resize(object sender, EventArgs e)
+        public void MakeCurrent()
         {
-            GL.Viewport(0, 0, Width, Height);
-            Render?.Invoke(this, EventArgs.Empty);
-            window.SwapBuffers();
-        }
-
-        public void Open()
-        {
-            if (running)
+            if (window.IsExiting)
             {
                 return;
             }
-
-            Init?.Invoke(this, EventArgs.Empty);
-            window.VSync = VSyncMode.Off;
-            window.Run(UPS, 0);
-
-            running = true;
+            window.MakeCurrent();
         }
 
-        public double GetFPS()
-        {
-            return window.RenderFrequency;
-        }
-
-        bool disposed = false;
         protected virtual void Dispose(bool disposing)
         {
-            // Return of already disposed
             if (disposed)
             {
                 return;
@@ -103,13 +75,12 @@ namespace Unicity.Renderer
 
             if (disposing)
             {
-                // Free managed objects here
+                // Dispose of managed resources
             }
 
-            // Dispose of any unmanaged resources
+            // Dispose of unmanaged resources
             window?.Dispose();
 
-            // Set disposed flag to true
             disposed = true;
         }
 

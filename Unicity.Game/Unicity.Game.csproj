@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{0155C998-9189-4C19-8DCC-13499797C7EA}</ProjectGuid>
+    <ProjectGuid>{4C824664-944B-4DCA-89BE-8CF16D249F51}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>Unicity.RenderTest</RootNamespace>
-    <AssemblyName>RenderTest</AssemblyName>
+    <RootNamespace>Unicity.Game</RootNamespace>
+    <AssemblyName>Unicity.Game</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -50,9 +50,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Unicity.Renderer\Unicity.Renderer.csproj">
-      <Project>{f6ebb1f8-fca9-4a8d-a807-e877cd047908}</Project>
-      <Name>Unicity.Renderer</Name>
+    <ProjectReference Include="..\Unicity.Engine\Unicity.Engine.csproj">
+      <Project>{cbf47abd-0454-496a-b3e3-848d27317c59}</Project>
+      <Name>Unicity.Engine</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

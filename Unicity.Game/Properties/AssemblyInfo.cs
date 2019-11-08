@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
-[assembly: AssemblyTitle("Unicity Render Test")]
-[assembly: AssemblyDescription("Test for the Unicity renderer")]
+[assembly: AssemblyTitle("Unicity.Game")]
+[assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Alee Productions")]
-[assembly: AssemblyProduct("Unicity Renderer Test")]
-[assembly: AssemblyCopyright("Copyright © 2019 Alee Productions")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("Unicity.Game")]
+[assembly: AssemblyCopyright("Copyright ©  2019")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // Die folgende GUID bestimmt die ID der Typbibliothek, wenn dieses Projekt für COM verfügbar gemacht wird
-[assembly: Guid("0155c998-9189-4c19-8dcc-13499797c7ea")]
+[assembly: Guid("4c824664-944b-4dca-89be-8cf16d249f51")]
 
 // Versionsinformationen für eine Assembly bestehen aus den folgenden vier Werten:
 //

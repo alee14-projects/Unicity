@@ -4,10 +4,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{7C0C6E9F-6BC9-4825-B657-8DACE26CF4FD}</ProjectGuid>
+    <ProjectGuid>{CBF47ABD-0454-496A-B3E3-848D27317C59}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>Unicity.Renderer</RootNamespace>
-    <AssemblyName>Unicity.Renderer</AssemblyName>
+    <RootNamespace>Unicity.Engine</RootNamespace>
+    <AssemblyName>Unicity.Engine</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -36,9 +36,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="OpenTK, Version=3.1.0.0, Culture=neutral, PublicKeyToken=bad199fe84eb3df4, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenTK.3.1.0\lib\net20\OpenTK.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -49,20 +46,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GraphicsRenderer.cs" />
+    <Compile Include="GameWindow.cs" />
+    <Compile Include="Model.cs" />
+    <Compile Include="GameObject.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RenderWindow.cs" />
-    <Compile Include="Shader.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="OpenTK.dll.config" />
-    <None Include="packages.config" />
-    <None Include="shaders\test.frag">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="shaders\test.vert">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\Unicity.Renderer\Unicity.Renderer.csproj">
+      <Project>{7c0c6e9f-6bc9-4825-b657-8dace26cf4fd}</Project>
+      <Name>Unicity.Renderer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
