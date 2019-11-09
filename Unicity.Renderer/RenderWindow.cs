@@ -30,12 +30,13 @@ namespace Unicity.Renderer
         private void Window_Load(object sender, EventArgs e)
         {
             GL.Viewport(0, 0, Width, Height);
-            GL.ClearColor(1.0f, 0.0f, 0.0f, 1.0f);
         }
 
         private void Window_Resize(object sender, EventArgs e)
         {
             GL.Viewport(0, 0, Width, Height);
+
+            Window_RenderFrame(this, new FrameEventArgs());
         }
 
         private void Window_UpdateFrame(object sender, FrameEventArgs e)
@@ -47,7 +48,7 @@ namespace Unicity.Renderer
         {
             GL.Clear(ClearBufferMask.ColorBufferBit);
 
-            Update?.Invoke(this, EventArgs.Empty);
+            Render?.Invoke(this, EventArgs.Empty);
 
             window.SwapBuffers();
         }

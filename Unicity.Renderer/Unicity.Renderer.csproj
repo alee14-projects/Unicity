@@ -53,6 +53,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RenderWindow.cs" />
     <Compile Include="Shader.cs" />
+    <Compile Include="Shapes\Shape.cs" />
+    <Compile Include="Shapes\Triangle.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="OpenTK.dll.config" />

@@ -1,5 +1,6 @@
 ﻿using System;
 using Unicity.Renderer;
+using Unicity.Renderer.Shapes;
 
 namespace Unicity.Engine
 {
@@ -20,20 +21,12 @@ namespace Unicity.Engine
             window = new RenderWindow(width, height, title);
             renderer = new GraphicsRenderer(window);
 
-            window.Render += Window_Render;
-
-            renderer.TestInit();
-        }
-
-        private void Window_Render(object sender, EventArgs e)
-        {
-            renderer.TestLoop();
+            renderer.SetRenderData(new Shape[] { new Triangle(new float[] { -0.5f, -0.5f, 0.0f, 0.5f, -0.5f, 0.0f, 0.0f,  0.5f, 0.0f }, 1.0f, 1.0f, 0.0f) });
         }
 
         public void Open(double ups = 60.0, double fps = 60.0)
         {
             window.Open(ups, fps);
-            renderer.TestInit();
         }
 
         protected virtual void Dispose(bool disposing)

@@ -1,45 +1,120 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using OpenTK;
 using OpenTK.Graphics.OpenGL4;
+using Unicity.Renderer.Shapes;
 
 namespace Unicity.Renderer
 {
-    public class GraphicsRenderer
+    public class GraphicsRenderer : IDisposable
     {
         RenderWindow window = null;
 
         // Tests
-        float[] vertices =
-        {
-            -0.5f, -0.5f, 0.0f,
-            0.5f, -0.5f, 0.0f,
-            0.0f, 0.5f, 0.0f
-        };
+        List<float> triangleVerts = new List<float>();
+        int triangleCount = -1;
+        int triangleVBO = -1;
+        int triangleVAO = -1;
 
         Shader shader = null;
 
-        int VBO = 0;
+        bool disposed = false;
 
         public GraphicsRenderer(RenderWindow window)
         {
             this.window = window;
-        }
-
-        public void TestInit()
-        {
-            window.MakeCurrent();
+            window.Render += Window_Render;
 
             string vertexCode = File.ReadAllText("shaders/test.vert");
+            string fragmentCode = File.ReadAllText("shaders/test.frag");
 
-            shader = new Shader(vertexCode, "");
+            shader = new Shader(vertexCode, fragmentCode);
+            shader.Use();
 
-            VBO = GL.GenBuffer();
-            GL.BindBuffer(BufferTarget.ArrayBuffer, VBO);
-            GL.BufferData(BufferTarget.ArrayBuffer, vertices.Length * sizeof(float), vertices, BufferUsageHint.StaticDraw);
+            shader.SetUniform("inColor", new Vector4(1.0f, 1.0f, 1.0f, 1.0f));
+
+            GL.ClearColor(0.5f, 0.5f, 0.5f, 1.0f);
+            SetRenderData(new Shape[0]);
         }
 
-        public void TestLoop()
+        public void SetRenderData(Shape[] shapes)
+        {
+            triangleVerts = new List<float>();
+
+            triangleCount = 0;
+
+            for (int i = 0; i < shapes.Length; i++)
+            {
+                if (typeof(Triangle) == shapes[i].GetType())
+                {
+                    foreach (float val in ((Triangle)shapes[i]).Vertices)
+                    {
+                        triangleVerts.Add(val);
+                    }
+
+                    triangleCount++;
+                }
+            }
+
+            if (triangleVAO != -1)
+            {
+                GL.DeleteVertexArray(triangleVAO);
+            }
+
+            if (triangleVBO != -1)
+            {
+                GL.DeleteBuffer(triangleVBO);
+            }
+
+            triangleVAO = GL.GenVertexArray();
+            triangleVBO = GL.GenBuffer();
+
+            GL.BindVertexArray(triangleVAO);
+            GL.BindBuffer(BufferTarget.ArrayBuffer, triangleVBO);
+            GL.BufferData(BufferTarget.ArrayBuffer, triangleVerts.Count * sizeof(float), triangleVerts.ToArray(), BufferUsageHint.DynamicDraw);
+
+            GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
+            GL.EnableVertexAttribArray(0);
+
+            GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
+            GL.BindVertexArray(0);
+        }
+
+        private void Window_Render(object sender, System.EventArgs e)
         {
             window.MakeCurrent();
+
+            shader.Use();
+            
+            GL.BindVertexArray(triangleVAO);
+            GL.DrawArrays(PrimitiveType.Triangles, 0, triangleCount * 3);
+            GL.BindVertexArray(0);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            if (disposed)
+            {
+                return;
+            }
+
+            if (disposing)
+            {
+                // Dispose of managed resources
+            }
+
+            // Dispose of unmanaged resources
+            GL.DeleteVertexArray(triangleVAO);
+            GL.DeleteBuffer(triangleVBO);
+
+            disposed = true;
+        }
+
+        public void Dispose()
+        {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }
