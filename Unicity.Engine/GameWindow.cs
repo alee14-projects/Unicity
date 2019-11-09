@@ -21,7 +21,7 @@ namespace Unicity.Engine
             window = new RenderWindow(width, height, title);
             renderer = new GraphicsRenderer(window);
 
-            renderer.SetRenderData(new Shape[] { new Triangle(new float[] { -0.5f, -0.5f, 0.0f, 0.5f, -0.5f, 0.0f, 0.0f,  0.5f, 0.0f }, 1.0f, 1.0f, 0.0f) });
+            renderer.SetRenderData(new Shape[] { new Triangle(new float[] { -1.0f, -0.5f, 0.0f, 0.0f, -0.5f, 0.0f, -0.5f,  0.5f, 0.0f }, 1.0f, 0.0f, 0.0f), new Triangle(new float[] { 0.0f, -0.5f, 0.0f, 1.0f, -0.5f, 0.0f, 0.5f, 0.5f, 0.0f }, 1.0f, 1.0f, 0.0f) });
         }
 
         public void Open(double ups = 60.0, double fps = 60.0)
@@ -42,6 +42,7 @@ namespace Unicity.Engine
             }
 
             // Dispose of unmanaged resources
+            renderer?.Dispose();
             window?.Dispose();
 
             disposed = true;

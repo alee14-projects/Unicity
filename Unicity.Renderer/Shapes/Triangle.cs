@@ -5,7 +5,7 @@ namespace Unicity.Renderer.Shapes
     public class Triangle : Shape
     {
         internal float[] Vertices;
-        Vector3 Color;
+        internal Vector3 Color;
 
         public Triangle(float[] vertices, float red, float green, float blue)
         {

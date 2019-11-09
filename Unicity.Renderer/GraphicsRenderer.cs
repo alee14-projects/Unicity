@@ -57,6 +57,23 @@ namespace Unicity.Renderer
                 }
             }
 
+            for (int i = 0; i < shapes.Length; i++)
+            {
+                if (typeof(Triangle) == shapes[i].GetType())
+                {
+                    Vector3 color = ((Triangle)shapes[i]).Color;
+                    triangleVerts.Add(color.X);
+                    triangleVerts.Add(color.Y);
+                    triangleVerts.Add(color.Z);
+                    triangleVerts.Add(color.X);
+                    triangleVerts.Add(color.Y);
+                    triangleVerts.Add(color.Z);
+                    triangleVerts.Add(color.X);
+                    triangleVerts.Add(color.Y);
+                    triangleVerts.Add(color.Z);
+                }
+            }
+
             if (triangleVAO != -1)
             {
                 GL.DeleteVertexArray(triangleVAO);
@@ -67,15 +84,20 @@ namespace Unicity.Renderer
                 GL.DeleteBuffer(triangleVBO);
             }
 
+            foreach (float v in triangleVerts) System.Console.WriteLine(v);
+
             triangleVAO = GL.GenVertexArray();
             triangleVBO = GL.GenBuffer();
-
+            
             GL.BindVertexArray(triangleVAO);
             GL.BindBuffer(BufferTarget.ArrayBuffer, triangleVBO);
             GL.BufferData(BufferTarget.ArrayBuffer, triangleVerts.Count * sizeof(float), triangleVerts.ToArray(), BufferUsageHint.DynamicDraw);
 
             GL.VertexAttribPointer(0, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), 0);
             GL.EnableVertexAttribArray(0);
+
+            GL.VertexAttribPointer(1, 3, VertexAttribPointerType.Float, false, 3 * sizeof(float), triangleVerts.Count / 2 * sizeof(float));
+            GL.EnableVertexAttribArray(1);
 
             GL.BindBuffer(BufferTarget.ArrayBuffer, 0);
             GL.BindVertexArray(0);
