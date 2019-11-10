@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.Text;
 using OpenTK;
-using OpenTK.Graphics.OpenGL4;
+using OpenTK.Graphics.OpenGL;
 using Unicity.Renderer.Shapes;
 
 namespace Unicity.Renderer
@@ -26,8 +26,8 @@ namespace Unicity.Renderer
             this.window = window;
             window.Render += Window_Render;
 
-            string vertexCode = File.ReadAllText("shaders/test.vert");
-            string fragmentCode = File.ReadAllText("shaders/test.frag");
+            string vertexCode = Encoding.UTF8.GetString(Properties.Resources.vertexShader);
+            string fragmentCode = Encoding.UTF8.GetString(Properties.Resources.fragmentShader);
 
             shader = new Shader(vertexCode, fragmentCode);
             shader.Use();
@@ -83,8 +83,6 @@ namespace Unicity.Renderer
             {
                 GL.DeleteBuffer(triangleVBO);
             }
-
-            foreach (float v in triangleVerts) System.Console.WriteLine(v);
 
             triangleVAO = GL.GenVertexArray();
             triangleVBO = GL.GenBuffer();

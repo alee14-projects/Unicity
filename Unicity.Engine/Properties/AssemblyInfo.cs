@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // Allgemeine Informationen über eine Assembly werden über die folgenden
 // Attribute gesteuert. Ändern Sie diese Attributwerte, um die Informationen zu ändern,
 // die einer Assembly zugeordnet sind.
-[assembly: AssemblyTitle("Unicity.Engine")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("Unicity Game Engine")]
+[assembly: AssemblyDescription("Game Engine for the Unicity game")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Unicity.Engine")]
-[assembly: AssemblyCopyright("Copyright ©  2019")]
+[assembly: AssemblyCompany("Alee Productions")]
+[assembly: AssemblyProduct("Unicity Engine")]
+[assembly: AssemblyCopyright("Copyright © 2019 Alee Productions")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

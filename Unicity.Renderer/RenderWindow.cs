@@ -1,7 +1,7 @@
 ﻿using System;
 using OpenTK;
 using OpenTK.Graphics;
-using OpenTK.Graphics.OpenGL4;
+using OpenTK.Graphics.OpenGL;
 
 namespace Unicity.Renderer
 {
@@ -21,7 +21,7 @@ namespace Unicity.Renderer
 
         public RenderWindow(int width, int height, string title)
         {
-            window = new GameWindow(width, height, GraphicsMode.Default, title, GameWindowFlags.Default, DisplayDevice.Default, 4, 0, GraphicsContextFlags.ForwardCompatible);
+            window = new GameWindow(width, height, GraphicsMode.Default, title, GameWindowFlags.Default, DisplayDevice.Default, 3, 3, GraphicsContextFlags.ForwardCompatible);
             window.Load += Window_Load;
             window.Resize += Window_Resize;
             window.UpdateFrame += Window_UpdateFrame;
