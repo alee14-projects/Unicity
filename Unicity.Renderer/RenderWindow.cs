@@ -17,6 +17,8 @@ namespace Unicity.Renderer
 
         public string Title { get => window.Title; set => window.Title = value; }
 
+        public bool UpdateOnResize = false;
+
         bool disposed = false;
 
         public RenderWindow(int width, int height, string title)
@@ -36,7 +38,10 @@ namespace Unicity.Renderer
         {
             GL.Viewport(0, 0, Width, Height);
 
-            Window_RenderFrame(this, new FrameEventArgs());
+            if (UpdateOnResize)
+            {
+                Window_RenderFrame(this, new FrameEventArgs());
+            }
         }
 
         private void Window_UpdateFrame(object sender, FrameEventArgs e)
